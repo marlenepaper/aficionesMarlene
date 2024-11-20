@@ -1,0 +1,29 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Meh" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorControlNormal">@color/white</item> <!-- Color del ícono -->
+        <item name="colorControlActivated">@color/white</item>
+    </style>
+
+    <style name="Theme.Meh" parent="Base.Theme.Meh" />
+
+    <style name="Theme.Meh.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Meh.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <style name="Theme.Meh.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="CustomToolbarTheme" parent="ThemeOverlay.AppCompat.Light">
+        <item name="colorControlNormal">@android:color/white</item> <!-- Color de los íconos -->
+        <item name="android:textColorPrimary">@android:color/white</item> <!-- Color del texto principal -->
+        <item name="android:textColorSecondary">@android:color/white</item>
+        <item name="android:background">@color/black</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:titleTextColor">@android:color/white</item>
+        <item name="android:subtitleTextColor">@android:color/white</item>
+
+    </style>
+</resources>
