@@ -42,34 +42,29 @@ public class Aficiones extends AppCompatActivity {
 
         binding.favHeartButton.setOnClickListener(view -> {
             int currentFragmentPosition = binding.viewPager.getCurrentItem();
-            toggleFavorite(currentFragmentPosition);
 
             SharedPreferences preferences = getSharedPreferences("AficionesPrefs", MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferences.edit();
             Set<String> favorites = preferences.getStringSet(FAVORITES_KEY, new HashSet<>());
+
             if (favorites.contains(String.valueOf(currentFragmentPosition))) {
-                binding.favHeartButton.setImageResource(R.drawable.baseline_favorite_24);
-            } else {
+
+                favorites.remove(String.valueOf(currentFragmentPosition));
+                Toast.makeText(this, "Eliminado de favoritos", Toast.LENGTH_SHORT).show();
+
                 binding.favHeartButton.setImageResource(R.drawable.baseline_favorite_border_24);
+            } else {
+
+                favorites.add(String.valueOf(currentFragmentPosition));
+                Toast.makeText(this, "¡Agregado a favoritos!", Toast.LENGTH_SHORT).show();
+
+                binding.favHeartButton.setImageResource(R.drawable.baseline_favorite_24);
             }
+
+            editor.putStringSet(FAVORITES_KEY, favorites);
+            editor.apply(); // Aplicar cambios
         });
-    }
 
-    // Método para agregar o quitar favoritos en SharedPreferences
-    private void toggleFavorite(int itemId) {
-        SharedPreferences preferences = getSharedPreferences("AficionesPrefs", MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        Set<String> favorites = preferences.getStringSet(FAVORITES_KEY, new HashSet<>());
-
-        if (favorites.contains(String.valueOf(itemId))) {
-            favorites.remove(String.valueOf(itemId)); // Eliminar de favoritos
-            Toast.makeText(this, "Eliminado de favoritos", Toast.LENGTH_SHORT).show();
-        } else {
-            favorites.add(String.valueOf(itemId)); // Agregar a favoritos
-            Toast.makeText(this, "¡Agregado a favoritos!", Toast.LENGTH_SHORT).show();
-        }
-
-        editor.putStringSet(FAVORITES_KEY, favorites);
-        editor.apply(); // Guardar cambios
     }
 
     @Override
@@ -84,20 +79,13 @@ public class Aficiones extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.favStarButton) {
-            // Abre la actividad de DetalleFragmentActivity para mostrar la lista de favoritos
             Intent intent = new Intent(Aficiones.this, DetalleFragmentActivity.class);
             startActivity(intent);
             return true;
         } else if (id == R.id.homeButton) {
-            // Abrir la actividad aficiones
-            Intent intent = new Intent(Aficiones.this, Aficiones.class);
-            intent.putExtra("fragment_position", getIntent().getIntExtra("fragment_position", -1));
-            startActivity(intent);
-            return true;
+            return false;
         } else if (id == R.id.aboutMeButton) {
-            int currentFragmentPosition = binding.viewPager.getCurrentItem();
             Intent intent = new Intent(Aficiones.this, SobreMi.class);
-            intent.putExtra("fragment_position", currentFragmentPosition); // Pasar la posición
             startActivity(intent);
             return true;
         } else if (id == R.id.myWebpage) {
