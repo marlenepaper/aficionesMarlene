@@ -20,7 +20,7 @@ public class DetalleFragmentActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detalle_fragment); // Crea un layout para la lista
+        setContentView(R.layout.activity_detalle_fragment);
 
         SharedPreferences preferences = getSharedPreferences("AficionesPrefs", MODE_PRIVATE);
         Set<String> favorites = preferences.getStringSet(FAVORITES_KEY, new HashSet<>());
