@@ -1,15 +1,25 @@
 <resources>
     <string name="app_name">Meh</string>
     <string name="title_activity_aficiones">Aficiones</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
-    <string name="aficion2">Afición #2</string>
-    <string name="aficion2title">Hola Coffee</string>
+    <string name="aficion2">AFICIONDOS</string>
+    <string name="aficion2title">OLFATEAR</string>
     <string name="aficion2description">Como una cachorra siendo entrenada para identificar los mejores sabores.</string>
-    <string name="aficion1">Afición #1</string>
-    <string name="aficion1title">Sobrevivir</string>
+    <string name="aficion1">AFICIONUNO</string>
+    <string name="aficion1title">SOBREVIVIR</string>
     <string name="aficion1description_part1">Como una cucaracha resistente, disfrutando hasta que sea mi tiempo de brillar.</string>
     <string name="fab_description">Añadir a favoritos</string>
+
+    <string name="sobremi">THIS IS ME:</string>
+    <string name="marlenepaper">MARLENE PAPER</string>
+    <string name="edad">Edad: 31</string>
+    <string name="sexo">Sexo: Femenino</string>
+    <string name="nacionalidad">Nacionalidad: Mexicana</string>
+    <string name="deporte">Deportes: Bici Montaña, Golf, Pilates, Hiking...</string>
+    <string name="Instrumentos">Instrumentos: Piano</string>
+    <string name="Musica">Artistas Favoritos: M. Ward, Davendra Bandhart, Carla Morrison </string>
+
+
+
     <string name="view_pager_description">Contenedor de páginas deslizable</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -7,7 +7,7 @@
 
 
     <ImageView
-        android:id="@+id/imagenAficion1"
+        android:id="@+id/imagenAficion2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,14 +22,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:fontFamily="@font/kavoon"
+        android:fontFamily="@font/londrina"
         android:text="@string/aficion1title"
         android:textColor="@color/black"
         android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imagenAficion1" />
+        app:layout_constraintTop_toBottomOf="@+id/imagenAficion2" />
 
     <TextView
         android:id="@+id/parrafo"
@@ -47,15 +47,15 @@
         app:layout_constraintTop_toBottomOf="@+id/sobrevivir" />
 
     <TextView
-        android:id="@+id/textoAficion1"
+        android:id="@+id/textoAficion2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="44dp"
-        android:fontFamily="@font/kavoon"
+        android:fontFamily="@font/londrina"
         android:text="@string/aficion1"
         android:textColor="@color/black"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/imagenAficion1"
+        app:layout_constraintBottom_toTopOf="@+id/imagenAficion2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent" />

@@ -8,12 +8,14 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
 import com.marlenepaper.meh.R;
 
-public class HolaCoffee extends Fragment {
+public class ThisIsMe extends Fragment {
+    //oncreateview para que salga toodo el codigo
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup containter, @Nullable Bundle savedInstanceState){
-        return inflater.inflate(R.layout.fragment_hola_coffee,containter,false);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_sobrevivir, container, false);
     }
 }

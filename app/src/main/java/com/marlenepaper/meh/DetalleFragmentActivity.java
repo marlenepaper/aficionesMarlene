@@ -1,33 +1,37 @@
 package com.marlenepaper.meh;
 
+import static com.marlenepaper.meh.Aficiones.FAVORITES_KEY;
+
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class DetalleFragmentActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detalle_fragment);
+        setContentView(R.layout.activity_detalle_fragment); // Crea un layout para la lista
 
-        // Obtener la posición del fragmento que fue pasada desde la actividad anterior
-        int fragmentPosition = getIntent().getIntExtra("fragment_position", -1);
-
-        if (fragmentPosition != -1) {
-            // Mostrar la posición del fragmento como un mensaje
-            Toast.makeText(this, "Has seleccionado el fragmento: " + fragmentPosition, Toast.LENGTH_SHORT).show();
-        }
-
-        // Recuperar la posición del fragmento guardada en SharedPreferences
         SharedPreferences preferences = getSharedPreferences("AficionesPrefs", MODE_PRIVATE);
-        int favoriteFragmentPosition = preferences.getInt("favorite_fragment_position", -1);
+        Set<String> favorites = preferences.getStringSet(FAVORITES_KEY, new HashSet<>());
 
-        if (favoriteFragmentPosition != -1) {
-            // Mostrar el fragmento favorito
-            Toast.makeText(this, "Tu fragmento favorito es el número: " + favoriteFragmentPosition, Toast.LENGTH_LONG).show();
-        }
+        // Convertir el set a una lista
+        List<String> favoriteList = new ArrayList<>(favorites);
+
+        // Mostrar la lista en un RecyclerView
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        FavoritesAdapter adapter = new FavoritesAdapter(favoriteList);
+        recyclerView.setAdapter(adapter);
     }
 }

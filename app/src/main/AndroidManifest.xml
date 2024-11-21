@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Meh"
         tools:targetApi="31">
         <activity
-            android:name=".SobreMi"
+            android:name=".fr.aficiones.SobreMi"
             android:exported="false" />
         <activity
             android:name=".DetalleFragmentActivity"
