@@ -37,13 +37,13 @@ public class Aficiones extends AppCompatActivity {
         viewPager.setAdapter(paginador);
 
         setSupportActionBar(binding.toolbar);
+        getSupportActionBar().setTitle("");
 
-        // Configura el OnClickListener para el FloatingActionButton
+
         binding.favHeartButton.setOnClickListener(view -> {
             int currentFragmentPosition = binding.viewPager.getCurrentItem();
             toggleFavorite(currentFragmentPosition);
 
-            // Cambiar el ícono según el estado
             SharedPreferences preferences = getSharedPreferences("AficionesPrefs", MODE_PRIVATE);
             Set<String> favorites = preferences.getStringSet(FAVORITES_KEY, new HashSet<>());
             if (favorites.contains(String.valueOf(currentFragmentPosition))) {
@@ -86,6 +86,12 @@ public class Aficiones extends AppCompatActivity {
         if (id == R.id.favStarButton) {
             // Abre la actividad de DetalleFragmentActivity para mostrar la lista de favoritos
             Intent intent = new Intent(Aficiones.this, DetalleFragmentActivity.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.homeButton) {
+            // Abrir la actividad aficiones
+            Intent intent = new Intent(Aficiones.this, Aficiones.class);
+            intent.putExtra("fragment_position", getIntent().getIntExtra("fragment_position", -1));
             startActivity(intent);
             return true;
         } else if (id == R.id.aboutMeButton) {

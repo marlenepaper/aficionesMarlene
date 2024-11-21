@@ -32,6 +32,9 @@ public class SobreMi extends AppCompatActivity {
         binding = ActivitySobreMiBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        setSupportActionBar(binding.toolbar);
+        getSupportActionBar().setTitle("");
+
         // Recuperar la posición del fragmento (si es necesario)
         int fragmentPosition = getIntent().getIntExtra("fragment_position", -1);
         // Aquí puedes usar fragmentPosition para personalizar la lógica
@@ -64,6 +67,12 @@ public class SobreMi extends AppCompatActivity {
             intent.putExtra("fragment_position", currentFragmentPosition); // Pasar la posición
             startActivity(intent);
 
+            return true;
+        } else if (id == R.id.homeButton) {
+            // Abrir la actividad aficiones
+            Intent intent = new Intent(SobreMi.this, Aficiones.class);
+            intent.putExtra("fragment_position", getIntent().getIntExtra("fragment_position", -1));
+            startActivity(intent);
             return true;
 
         } else if (id == R.id.aboutMeButton) {
