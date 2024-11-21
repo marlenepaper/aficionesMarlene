@@ -29,7 +29,7 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String favorite = favorites.get(position);
-        holder.textView.setText("Item " + favorite);
+        holder.textView.setText(favorite);
     }
 
     @Override
